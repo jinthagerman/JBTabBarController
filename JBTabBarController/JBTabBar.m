@@ -52,6 +52,15 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
         [self addSubview:_backgroundView];
         [self sendSubviewToBack:_backgroundView];
         
+        self.backgroundImage = [UIImage imageNamed:@"JBTabBarController.bundle/bg.png"];
+        
+        UIImage* selected = [UIImage imageNamed:@"JBTabBarController.bundle/bg-selected.png"];
+        if ([selected respondsToSelector:@selector(resizableImageWithCapInsets:)]) {
+            self.selectionIndicatorImage = [selected resizableImageWithCapInsets:UIEdgeInsetsMake(6, 5, 5, 5)];
+        } else {
+            self.selectionIndicatorImage = [selected stretchableImageWithLeftCapWidth:5 topCapHeight:6];
+        }
+        
         self.frame = CGRectMake(0.0f, 0.0f, kDefaultSize.width, kDefaultSize.height);
     }
     return self;
