@@ -1,10 +1,12 @@
-JBTabBarController aims to be a drop-in replacement of UITabBarController, but with the intention of letting developers easily customise its appearance. JBTabBar uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise the all aspects of the TabBar.
+JBTabBarController aims to be a drop-in replacement of UITabBarController, but with the intention of letting developers easily customise its appearance. JBTabBar uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise the all aspects of the TabBar. 
 
 In particular, the selected and unselected images for each TabBar item can be specified and are full colour images not clipping masks. UITabBarItem+JBAdditions.h adds an additional property to UITabBarItem (selectedImage) which specifies the image to show when that TabBar item is selected. I would recommend images of 30x30 pixels (60x60 pixels for Retina displays) for this purpose.
 
 The included example attempts to emulate the standard UITabBar design provided by Apple. The layer styles used to create the TabBar images in Photoshop are in the Extras folder.
 
 You will need to import UITabBarItem+JBAdditions.h where ever you use the extra UITabBarItem property.
+
+The project uses ARC and targets iOS 4.0+ devices.
 
 In the example project, JBTabBar uses the following icons from the following authors (all from The Noun Project)
 
