@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'JBTabBarController/*.{h,m}'
   s.resources = "JBTabBarController/JBTabBarController.bundle"
+  s.requires_arc = true
 end

@@ -35,8 +35,8 @@
     __unsafe_unretained UIViewController* _selectedViewController;
 }
 
-@property (nonatomic, readonly, retain) JBTabBar* tabBar;
-@property (nonatomic, retain) NSArray* viewControllers;
+@property (nonatomic, readonly, strong) JBTabBar* tabBar;
+@property (nonatomic, strong) NSArray* viewControllers;
 
 @property (nonatomic, unsafe_unretained) UIViewController* selectedViewController;
 @property (nonatomic) NSUInteger selectedIndex;

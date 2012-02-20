@@ -31,7 +31,7 @@
 
 @interface JBTabBarController()
 
-@property (nonatomic, readwrite, retain) JBTabBar* tabBar;
+@property (nonatomic, readwrite, strong) JBTabBar* tabBar;
 
 - (void) setUpTabBarItems;
 
