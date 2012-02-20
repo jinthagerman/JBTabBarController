@@ -1,7 +1,15 @@
-JBTabBarController aims to be a drop-in replacement of UITabBarController, but with the intention of letting developers easily customise its appearance. The JBTabBar uses images for each UI Element except for the labels on the TabBar items.
+JBTabBarController aims to be a drop-in replacement of UITabBarController, but with the intention of letting developers easily customise its appearance. JBTabBar uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise the all aspects of the TabBar.
 
-In particular, the selected and unselected images for each TabBar item can be specified and are full colour images not clipping masks. UITabBarItem+JBAdditions.h adds an additional property to UITabBarItem which . I would recommend images of 30x30 pixels (60x60 pixels for Retina displays) for this purpose
+In particular, the selected and unselected images for each TabBar item can be specified and are full colour images not clipping masks. UITabBarItem+JBAdditions.h adds an additional property to UITabBarItem (selectedImage) which specifies the image to show when that TabBar item is selected. I would recommend images of 30x30 pixels (60x60 pixels for Retina displays) for this purpose.
 
-The included example attempts to emulate the standard UITabBar design provided by Apple. The layer styles used to create the 
+The included example attempts to emulate the standard UITabBar design provided by Apple. The layer styles used to create the TabBar images in Photoshop are in the Extras folder.
 
 You will need to import UITabBarItem+JBAdditions.h where ever you use the extra UITabBarItem property.
+
+In the example project, JBTabBar uses the following icons from the following authors (all from The Noun Project)
+
+"Levitation" icon by Scott Lewis, from The Noun Project http://thenounproject.com/noun/levitation/#icon-No774
+"At" from The Noun Project (under Public Domain) http://thenounproject.com/noun/at/#icon-No596
+"Brain" from The Noun Project (under Public Domain) http://thenounproject.com/noun/brain/#icon-No685
+"Peaceful Protest" from The Noun Project (under Public Domain) http://thenounproject.com/noun/peaceful-protest/#icon-No760
+"Elephant" from the Adrijan Karavdic, from The Noun Project http://thenounproject.com/noun/elephant/#icon-No860
