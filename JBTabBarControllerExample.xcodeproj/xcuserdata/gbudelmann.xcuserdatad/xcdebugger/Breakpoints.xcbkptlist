@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBar.m"
-         timestampString = "351397273.639387"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
          landmarkName = "-buttonWithTabBarItem:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBar.m"
-         timestampString = "351397273.639387"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-otherTouchesAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBarController.m"
-         timestampString = "351398893.567033"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBarButton.m"
-         timestampString = "351394771.305156"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBarButton.m"
-         timestampString = "351394771.305156"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -79,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBarButton.m"
-         timestampString = "351393971.340823"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
          landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -93,11 +93,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBar.m"
-         timestampString = "351397072.146329"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "46"
-         endingLineNumber = "46"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-setItems:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -107,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBar.m"
-         timestampString = "351397273.639387"
+         timestampString = "351401052.383166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-setSelectionIndicatorImage:"
          landmarkType = "5">
       </FileBreakpoint>
