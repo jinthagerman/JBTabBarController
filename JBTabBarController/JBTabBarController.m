@@ -35,9 +35,6 @@
     self.tabBar = [[JBTabBar alloc] init];
     self.tabBar.delegate = self;
     
-    self.tabBar.backgroundImage = [UIImage imageNamed:@"bg"];
-    self.tabBar.selectionIndicatorImage = [[UIImage imageNamed:@"bg-selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 5, 5, 5)];
-    
     CGRect frame = self.tabBar.frame;
     frame.origin.y = self.view.bounds.size.height - frame.size.height;
     self.tabBar.frame = frame;

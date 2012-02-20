@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "JBTabBarController.h"
+#import "TabBarController.h"
 
 #import "FirstViewController.h"
 #import "SecondViewController.h"
@@ -23,7 +23,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.    
-    JBTabBarController* tabBarController = [[JBTabBarController alloc] init];
+    TabBarController* tabBarController = [[TabBarController alloc] init];
     tabBarController.viewControllers = [NSArray arrayWithObjects:[[UINavigationController alloc] initWithRootViewController:[[FirstViewController alloc] init]], 
                                                                                 [[UINavigationController alloc] initWithRootViewController:[[SecondViewController alloc] init]],
                                                                                 [[UINavigationController alloc] initWithRootViewController:[[ThirdViewController alloc] init]],

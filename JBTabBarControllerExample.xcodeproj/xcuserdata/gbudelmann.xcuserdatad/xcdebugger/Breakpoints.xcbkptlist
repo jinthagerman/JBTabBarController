@@ -37,25 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "JBTabBarController/JBTabBarController.m"
-         timestampString = "351397672.716922"
+         timestampString = "351398893.567033"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
-         landmarkName = "-loadView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "JBTabBarController/JBTabBarController.m"
-         timestampString = "351397672.716922"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>

@@ -46,6 +46,7 @@
 		0EC2729514F1E14000C8FC3E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2729114F1E14000C8FC3E /* bg.png */; };
 		0EC2729614F1E14000C8FC3E /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EC2729214F1E14000C8FC3E /* bg@2x.png */; };
 		0EC2729914F1E14D00C8FC3E /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2729814F1E14D00C8FC3E /* FifthViewController.m */; };
+		0EC2729C14F1EC1300C8FC3E /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2729B14F1EC1300C8FC3E /* TabBarController.m */; };
 		0EEEE29F14E4C175002998DB /* JBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEE29E14E4C175002998DB /* JBTabBarButton.m */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,8 @@
 		0EC2729214F1E14000C8FC3E /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		0EC2729714F1E14D00C8FC3E /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = Classes/FifthViewController.h; sourceTree = "<group>"; };
 		0EC2729814F1E14D00C8FC3E /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = Classes/FifthViewController.m; sourceTree = "<group>"; };
+		0EC2729A14F1EC1300C8FC3E /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = Classes/TabBarController.h; sourceTree = "<group>"; };
+		0EC2729B14F1EC1300C8FC3E /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = Classes/TabBarController.m; sourceTree = "<group>"; };
 		0EEEE29D14E4C175002998DB /* JBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTabBarButton.h; sourceTree = "<group>"; };
 		0EEEE29E14E4C175002998DB /* JBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTabBarButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +191,8 @@
 			children = (
 				0E25B69814E4B1D2004582F3 /* AppDelegate.h */,
 				0E25B69914E4B1D2004582F3 /* AppDelegate.m */,
+				0EC2729A14F1EC1300C8FC3E /* TabBarController.h */,
+				0EC2729B14F1EC1300C8FC3E /* TabBarController.m */,
 				0E25B69614E4B1D2004582F3 /* FirstViewController.h */,
 				0E25B69714E4B1D2004582F3 /* FirstViewController.m */,
 				0E25B69A14E4B1D3004582F3 /* SecondViewController.h */,
@@ -338,6 +343,7 @@
 				0EEEE29F14E4C175002998DB /* JBTabBarButton.m in Sources */,
 				0EC2725A14F1D46300C8FC3E /* FourthViewController.m in Sources */,
 				0EC2729914F1E14D00C8FC3E /* FifthViewController.m in Sources */,
+				0EC2729C14F1EC1300C8FC3E /* TabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
