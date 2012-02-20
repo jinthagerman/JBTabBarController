@@ -34,7 +34,7 @@
     self.titleLabel.adjustsFontSizeToFitWidth = NO;
     self.titleLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
 
-    if (!![self currentImage] && !![self currentTitle]) {
+    if ([self currentImage] && [self currentTitle]) {
         CGFloat paddingV = 3.0f;
         CGFloat imageHeight = self.bounds.size.height - self.titleLabel.font.lineHeight - 2*paddingV;
         CGFloat imageScale = imageHeight/self.imageView.frame.size.height;
@@ -52,7 +52,7 @@
         frame.size.height = self.titleLabel.font.lineHeight;
         frame.size.width = self.bounds.size.width - 2*frame.origin.x;
         self.titleLabel.frame = frame;   
-    } else if (![self currentImage] && !![self currentTitle]) {
+    } else if (![self currentImage] && [self currentTitle]) {
         CGFloat padding = (self.bounds.size.height - self.titleLabel.font.lineHeight)/2;
         
         CGRect frame = self.titleLabel.frame;
@@ -61,7 +61,7 @@
         frame.size.height = self.titleLabel.font.lineHeight;
         frame.size.width = self.bounds.size.width - 2*frame.origin.x;
         self.titleLabel.frame = frame;   
-    } else if (!![self currentImage] && ![self currentTitle]) {
+    } else if ([self currentImage] && ![self currentTitle]) {
         CGFloat padding = (self.bounds.size.height - self.imageView.frame.size.height)/2;
         
         CGRect frame = self.imageView.frame;
