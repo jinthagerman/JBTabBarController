@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E03B65014F32C2200743353 /* UIViewController+JBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */; };
 		0E25B69E14E4B1D4004582F3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69714E4B1D2004582F3 /* FirstViewController.m */; };
 		0E25B69F14E4B1D4004582F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69914E4B1D2004582F3 /* AppDelegate.m */; };
 		0E25B6A014E4B1D4004582F3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69B14E4B1D3004582F3 /* SecondViewController.m */; };
@@ -46,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JBAdditions.h"; sourceTree = "<group>"; };
+		0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JBAdditions.m"; sourceTree = "<group>"; };
 		0E25B69614E4B1D2004582F3 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = Classes/FirstViewController.h; sourceTree = "<group>"; };
 		0E25B69714E4B1D2004582F3 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = Classes/FirstViewController.m; sourceTree = "<group>"; };
 		0E25B69814E4B1D2004582F3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */,
 				0E9C76C114F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.h */,
 				0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */,
+				0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */,
+				0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */,
 				0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */,
 			);
 			name = JBTabBarController;
@@ -356,6 +361,7 @@
 				0E9C76C414F2EBDD00BF8FC2 /* JBTabBarButton.m in Sources */,
 				0E9C76C614F2EBDD00BF8FC2 /* JBTabBarController.m in Sources */,
 				0E9C76C714F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m in Sources */,
+				0E03B65014F32C2200743353 /* UIViewController+JBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

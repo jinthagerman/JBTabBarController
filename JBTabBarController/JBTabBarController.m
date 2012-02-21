@@ -29,6 +29,8 @@
 
 #import "UITabBarItem+JBAdditions.h"
 
+#import "UIViewController+JBAdditions.h"
+
 @interface JBTabBarController()
 
 @property (nonatomic, readwrite, strong) JBTabBar* tabBar;
@@ -75,6 +77,11 @@
 
 - (void) setViewControllers:(NSArray *)viewControllers {
     _viewControllers = viewControllers;
+    
+    for (UIViewController* controller in _viewControllers) {
+        controller.JBTabBarController = self;
+    }
+    
     if (self.tabBar) {
         [self setUpTabBarItems];
     }
