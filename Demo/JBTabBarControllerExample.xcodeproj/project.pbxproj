@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E03B65014F32C2200743353 /* UIViewController+JBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */; };
+		0E14C70E14F6E4FC00A8E26E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E14C70D14F6E4FC00A8E26E /* CoreGraphics.framework */; };
 		0E25B69E14E4B1D4004582F3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69714E4B1D2004582F3 /* FirstViewController.m */; };
 		0E25B69F14E4B1D4004582F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69914E4B1D2004582F3 /* AppDelegate.m */; };
 		0E25B6A014E4B1D4004582F3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69B14E4B1D3004582F3 /* SecondViewController.m */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JBAdditions.h"; sourceTree = "<group>"; };
 		0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JBAdditions.m"; sourceTree = "<group>"; };
+		0E14C70D14F6E4FC00A8E26E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0E25B69614E4B1D2004582F3 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = Classes/FirstViewController.h; sourceTree = "<group>"; };
 		0E25B69714E4B1D2004582F3 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = Classes/FirstViewController.m; sourceTree = "<group>"; };
 		0E25B69814E4B1D2004582F3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E14C70E14F6E4FC00A8E26E /* CoreGraphics.framework in Frameworks */,
 				0E7D3FDF14DB31CF00E2D3A6 /* UIKit.framework in Frameworks */,
 				0E7D3FE114DB31CF00E2D3A6 /* Foundation.framework in Frameworks */,
 			);
@@ -134,6 +137,7 @@
 		0E7D3FDD14DB31CF00E2D3A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E14C70D14F6E4FC00A8E26E /* CoreGraphics.framework */,
 				0E7D3FDE14DB31CF00E2D3A6 /* UIKit.framework */,
 				0E7D3FE014DB31CF00E2D3A6 /* Foundation.framework */,
 			);
@@ -429,6 +433,10 @@
 		0E7D400814DB31CF00E2D3A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -445,6 +453,10 @@
 		0E7D400914DB31CF00E2D3A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
