@@ -126,7 +126,9 @@
         frame.size.height -= self.tabBar.frame.size.height;
         selectedViewController.view.frame = frame;
         
+        [selectedViewController viewWillAppear:NO];
         [self.view insertSubview:selectedViewController.view belowSubview:self.tabBar];
+        [selectedViewController viewDidAppear:NO];
         
         _selectedViewController = selectedViewController;
         if (self.tabBar.selectedItem != _selectedViewController.tabBarItem) {
