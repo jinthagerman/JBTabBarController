@@ -40,6 +40,7 @@
 @property(nonatomic,copy) NSArray *items;
 @property(nonatomic,unsafe_unretained) UITabBarItem *selectedItem;
 
+// Needs to be implemented to replicate UITabBar fully
 //- (void)setItems:(NSArray *)items animated:(BOOL)animated;
 
 @property(nonatomic,strong) UIImage *backgroundImage;

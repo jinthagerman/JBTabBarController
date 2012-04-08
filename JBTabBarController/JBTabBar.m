@@ -123,12 +123,10 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
         if (button == selectedButton)
         {
             button.selected = YES;
-            button.highlighted = NO;
-        }
-        else
-        {
+            button.highlighted = NO;        
+        } else {
             button.selected = NO;
-            button.highlighted = NO;
+            button.highlighted = NO;        
         }
     }
 }
@@ -158,22 +156,22 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     JBTabBarButton* button = [[JBTabBarButton alloc] init];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:10.0f];
     button.titleLabel.textAlignment = UITextAlignmentCenter;
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    button.showsTouchWhenHighlighted = NO;
+    button.reversesTitleShadowWhenHighlighted = NO;
+    button.adjustsImageWhenHighlighted = NO;
     
     [button setTitleColor:[UIColor colorWithWhite:0.6f alpha:1.0f] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
     [button setImage:item.image forState:UIControlStateNormal];
-    [button setImage:item.selectedImage forState:UIControlStateHighlighted];
     [button setImage:item.selectedImage forState:UIControlStateSelected];
     
     [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateHighlighted];
     [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateSelected];
         
     [button setTitle:item.title forState:UIControlStateNormal];
-    
-    button.adjustsImageWhenHighlighted = NO;
-    
+        
     return button;
 }
 
