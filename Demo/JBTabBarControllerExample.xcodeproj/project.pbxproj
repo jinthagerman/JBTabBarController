@@ -437,15 +437,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classes/JBTabBarController-Prefix.pch";
 				INFOPLIST_FILE = "Classes/JBTabBarController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JBTabBarControllerExample;
-				PROVISIONING_PROFILE = "F081904D-8886-4701-885A-56DC38085328";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F081904D-8886-4701-885A-56DC38085328";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -457,15 +457,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jean-Seong Budelmann (GG22BJ2JU3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classes/JBTabBarController-Prefix.pch";
 				INFOPLIST_FILE = "Classes/JBTabBarController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JBTabBarControllerExample;
-				PROVISIONING_PROFILE = "F081904D-8886-4701-885A-56DC38085328";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F081904D-8886-4701-885A-56DC38085328";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
