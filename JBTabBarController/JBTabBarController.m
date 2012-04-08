@@ -36,6 +36,7 @@
 @property (nonatomic, readwrite, strong) JBTabBar* tabBar;
 
 - (void) setUpTabBarItems;
+- (void) loadControllerViews;
 
 @end
 
@@ -59,9 +60,15 @@
     self.tabBar.frame = frame;
     self.tabBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     [self setUpTabBarItems];
-    self.selectedIndex = 0;
+    [self loadControllerViews];
     
     [self.view addSubview:self.tabBar];
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    self.selectedIndex = 0;
 }
 
 - (void)viewDidUnload {
@@ -77,6 +84,8 @@
 
 - (void) setViewControllers:(NSArray *)viewControllers {
     _viewControllers = viewControllers;
+    
+    [self loadControllerViews];
     
     for (UIViewController* controller in _viewControllers) {
         controller.JBTabBarController = self;
@@ -96,6 +105,16 @@
             [items addObject:controller.tabBarItem];
         }
         self.tabBar.items = items;
+    }
+}
+
+- (void)loadControllerViews {
+    if ([_viewControllers count]>0) {
+        for (id object in _viewControllers) {
+            NSAssert([object isKindOfClass:[UIViewController class]], @"Only UIViewControllers can be loaded into the JBTabBArController viewControllers");
+            UIViewController* controller = (UIViewController*) object;
+            [controller view];
+        }
     }
 }
 
@@ -120,14 +139,21 @@
 
 - (void)setSelectedViewController:(UIViewController *)selectedViewController {
     if (selectedViewController != _selectedViewController && [_viewControllers containsObject:selectedViewController]) {
+        NSArray *versionInfo = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+        BOOL notifyViews  = [[versionInfo objectAtIndex:0] intValue] < 5;
+        
+        if (notifyViews) [_selectedViewController viewWillDisappear:NO];
         [_selectedViewController.view removeFromSuperview];
+        if (notifyViews) [_selectedViewController viewDidDisappear:NO];
         
         CGRect frame = self.view.bounds;
         frame.size.height -= self.tabBar.frame.size.height;
         selectedViewController.view.frame = frame;
         
+        if (notifyViews) [selectedViewController viewWillAppear:NO];
         [self.view insertSubview:selectedViewController.view belowSubview:self.tabBar];
-        
+        if (notifyViews) [selectedViewController viewDidAppear:NO];
+
         _selectedViewController = selectedViewController;
         if (self.tabBar.selectedItem != _selectedViewController.tabBarItem) {
             self.tabBar.selectedItem = _selectedViewController.tabBarItem;
