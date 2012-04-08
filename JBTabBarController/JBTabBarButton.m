@@ -27,52 +27,29 @@
 
 @implementation JBTabBarButton 
 
-- (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    if ([self currentTitle] && ![[self currentTitle] isEqualToString:@""]) {
-        CGFloat paddingH = 3.0f;
-        CGFloat requiredWidth = self.bounds.size.width - 2*paddingH;
-        CGSize titleSize = [[self currentTitle] sizeWithFont:self.titleLabel.font
-                                                 minFontSize:8.0f
-                                              actualFontSize:NULL
-                                                    forWidth:requiredWidth
-                                               lineBreakMode:UILineBreakModeMiddleTruncation];
-                
-        if ([self currentImage]) {
-            CGFloat paddingV = 3.0f;
-            CGFloat imageHeight = self.bounds.size.height - titleSize.height - paddingV;
-            return CGRectMake((self.bounds.size.width - titleSize.width)/2, imageHeight + paddingV, titleSize.width, titleSize.height);   
-        } else {
-            CGFloat paddingV = (self.bounds.size.height - titleSize.height)/2;
-            return CGRectMake((self.bounds.size.width - titleSize.width)/2, paddingV, titleSize.width, titleSize.height);
-        }
-    }
-    return CGRectZero;
-}
-
-- (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    if ([self currentImage]) {
-        CGFloat paddingH = 3.0f;
-        CGFloat requiredWidth = self.bounds.size.width - 2*paddingH;
-        CGSize titleSize = [[self currentTitle] sizeWithFont:self.titleLabel.font
-                                                 minFontSize:8.0f
-                                              actualFontSize:NULL
-                                                    forWidth:requiredWidth
-                                               lineBreakMode:UILineBreakModeMiddleTruncation];
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    
+    CGFloat paddingH = 3.0f;
+    CGFloat paddingV = 3.0f;        
+    CGFloat requiredWidth = self.bounds.size.width - 2*paddingH;
+    CGSize titleSize = [[self currentTitle] sizeWithFont:self.titleLabel.font
+                                                forWidth:requiredWidth 
+                                           lineBreakMode:self.titleLabel.lineBreakMode];
+    
+    if ([self currentImage] && [self currentTitle]) {
+        CGFloat imageHeight = self.bounds.size.height - titleSize.height - paddingV;
         
-        if ([self currentTitle] && ![[self currentTitle] isEqualToString:@""]) {
-            CGFloat paddingV = 3.0f;
-            CGFloat imageHeight = self.bounds.size.height - titleSize.height - paddingV;
-            CGFloat imageScale = imageHeight/[self currentImage].size.height;
-            CGFloat imageWidth = [self currentImage].size.width*imageScale;
-            
-            return CGRectMake((self.bounds.size.width - imageWidth)/2, paddingV, imageWidth, imageHeight);   
-        } else {
-            CGSize imageSize = [self currentImage].size;
-            CGFloat paddingV = (self.bounds.size.height - imageSize.height)/2;
-            return CGRectMake((self.bounds.size.width - imageSize.width)/2, paddingV, imageSize.width, imageSize.height);
-        }
-    }
-    return CGRectZero;
+        self.imageView.frame = CGRectMake(paddingH, paddingV, requiredWidth, imageHeight); 
+        
+        self.titleLabel.frame = CGRectMake(paddingH, imageHeight + paddingV, requiredWidth, titleSize.height);  
+    } else if (![self currentImage] && [self currentTitle]) {
+        self.titleLabel.frame = CGRectMake(paddingH, (self.bounds.size.height-titleSize.height)/2, requiredWidth, titleSize.height);   
+    } else if ([self currentImage] && ![self currentTitle]) {
+        CGSize imageSize = [self currentImage].size;
+        CGFloat paddingV = (self.bounds.size.height - imageSize.height)/2;
+        self.imageView.frame = CGRectMake(roundf((self.bounds.size.width - imageSize.width)/2), roundf(paddingV), roundf(imageSize.width), roundf(imageSize.height));
+    }    
 }
 
 @end
