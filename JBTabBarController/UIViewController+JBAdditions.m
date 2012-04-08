@@ -37,6 +37,12 @@ static char tabBarControllerKey;
 
 - (void)setJBTabBarController:(JBTabBarController *)JBTabBarController {
     objc_setAssociatedObject(self, &tabBarControllerKey, JBTabBarController, OBJC_ASSOCIATION_ASSIGN); 
+    if ([self isKindOfClass:[UINavigationController class]]) {
+        UINavigationController* controller = (UINavigationController*)self;
+        for (UIViewController* childController in controller.viewControllers) {
+            childController.JBTabBarController = JBTabBarController;
+        }
+    }
 }
 
 @end
