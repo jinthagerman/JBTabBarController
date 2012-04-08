@@ -43,8 +43,10 @@
 		0E9C76F314F2EC0600BF8FC2 /* Levitate-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C76DF14F2EC0600BF8FC2 /* Levitate-selected@2x.png */; };
 		0E9C76F414F2EC0600BF8FC2 /* Levitate-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C76E014F2EC0600BF8FC2 /* Levitate-unselected.png */; };
 		0E9C76F514F2EC0600BF8FC2 /* Levitate-unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C76E114F2EC0600BF8FC2 /* Levitate-unselected@2x.png */; };
+		0E9F94B215318F71008530BD /* UINavigationController+JBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9F94B115318F71008530BD /* UINavigationController+JBAdditions.m */; };
 		0EC2725A14F1D46300C8FC3E /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2725914F1D46300C8FC3E /* FourthViewController.m */; };
 		0EC2729914F1E14D00C8FC3E /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC2729814F1E14D00C8FC3E /* FifthViewController.m */; };
+		0ECA383D1531A6EF00A4F4E1 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA38201531A6EF00A4F4E1 /* JRSwizzle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		0E25B6A314E4B201004582F3 /* JBTabBarController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JBTabBarController-Prefix.pch"; path = "Classes/JBTabBarController-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		0E25B6A414E4B201004582F3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = SOURCE_ROOT; };
 		0E25B6A914E4B216004582F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Classes/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		0E5E4E68153197D8004E4A63 /* UINavigationController+JBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JBAdditions.h"; sourceTree = "<group>"; };
 		0E7D3FDA14DB31CF00E2D3A6 /* JBTabBarControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JBTabBarControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7D3FDE14DB31CF00E2D3A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0E7D3FE014DB31CF00E2D3A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,10 +98,13 @@
 		0E9C76DF14F2EC0600BF8FC2 /* Levitate-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Levitate-selected@2x.png"; sourceTree = "<group>"; };
 		0E9C76E014F2EC0600BF8FC2 /* Levitate-unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Levitate-unselected.png"; sourceTree = "<group>"; };
 		0E9C76E114F2EC0600BF8FC2 /* Levitate-unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Levitate-unselected@2x.png"; sourceTree = "<group>"; };
+		0E9F94B115318F71008530BD /* UINavigationController+JBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+JBAdditions.m"; sourceTree = "<group>"; };
 		0EC2725814F1D46300C8FC3E /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthViewController.h; path = Classes/FourthViewController.h; sourceTree = "<group>"; };
 		0EC2725914F1D46300C8FC3E /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourthViewController.m; path = Classes/FourthViewController.m; sourceTree = "<group>"; };
 		0EC2729714F1E14D00C8FC3E /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = Classes/FifthViewController.h; sourceTree = "<group>"; };
 		0EC2729814F1E14D00C8FC3E /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = Classes/FifthViewController.m; sourceTree = "<group>"; };
+		0ECA381F1531A6EF00A4F4E1 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		0ECA38201531A6EF00A4F4E1 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9C76B914F2EBDD00BF8FC2 /* JBTabBarController */,
+				0ECA381E1531A6EF00A4F4E1 /* JRSwizzle */,
 				0E7D400D14DB31F100E2D3A6 /* Classes */,
 				0E9C76F614F2EC0C00BF8FC2 /* Resources */,
 				0E7D3FDD14DB31CF00E2D3A6 /* Frameworks */,
@@ -189,6 +196,8 @@
 				0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */,
 				0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */,
 				0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */,
+				0E5E4E68153197D8004E4A63 /* UINavigationController+JBAdditions.h */,
+				0E9F94B115318F71008530BD /* UINavigationController+JBAdditions.m */,
 				0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */,
 			);
 			name = JBTabBarController;
@@ -269,6 +278,16 @@
 				0E9C76C814F2EC0600BF8FC2 /* Icons */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		0ECA381E1531A6EF00A4F4E1 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				0ECA381F1531A6EF00A4F4E1 /* JRSwizzle.h */,
+				0ECA38201531A6EF00A4F4E1 /* JRSwizzle.m */,
+			);
+			name = JRSwizzle;
+			path = ../JRSwizzle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +385,8 @@
 				0E9C76C614F2EBDD00BF8FC2 /* JBTabBarController.m in Sources */,
 				0E9C76C714F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m in Sources */,
 				0E03B65014F32C2200743353 /* UIViewController+JBAdditions.m in Sources */,
+				0E9F94B215318F71008530BD /* UINavigationController+JBAdditions.m in Sources */,
+				0ECA383D1531A6EF00A4F4E1 /* JRSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

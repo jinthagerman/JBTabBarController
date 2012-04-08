@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import "UITabBarItem+JBAdditions.h"
     #import "UIViewController+JBAdditions.h"
+    #import "UINavigationController+JBAdditions.h"
 #endif
