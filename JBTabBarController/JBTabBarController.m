@@ -59,15 +59,8 @@
     self.tabBar.frame = frame;
     self.tabBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     [self setUpTabBarItems];
-    [self loadControllerViews];
     
     [self.view addSubview:self.tabBar];
-}
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    
-    self.selectedIndex = 0;
 }
 
 - (void)viewDidUnload {
@@ -78,19 +71,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  if (self.viewControllers == nil) {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  if (self.selectedViewController) {
+    return [self.selectedViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
   }
-  
-  if ([self.viewControllers count] == 0) {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  }
-  
-  if (self.selectedIndex >= [self.viewControllers count]) {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  }
-
-  return [[self.viewControllers objectAtIndex:self.selectedIndex] shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+  return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void) setViewControllers:(NSArray *)viewControllers {
@@ -107,13 +91,15 @@
     if (self.tabBar) {
         [self setUpTabBarItems];
     }
+    
+    self.selectedIndex = 0;
 }
 
 - (void) setUpTabBarItems {
     if ([_viewControllers count]>0) {
         NSMutableArray* items = [[NSMutableArray alloc] initWithCapacity:[_viewControllers count]];
         for (id object in _viewControllers) {
-            NSAssert([object isKindOfClass:[UIViewController class]], @"Only UIViewControllers can be loaded into the JBTabBArController viewControllers");
+            NSAssert([object isKindOfClass:[UIViewController class]], @"Only UIViewControllers can be loaded into the JBTabBarController viewControllers");
             UIViewController* controller = (UIViewController*) object;
             [items addObject:controller.tabBarItem];
         }
@@ -124,9 +110,13 @@
 - (void)loadControllerViews {
     if ([_viewControllers count]>0) {
         for (id object in _viewControllers) {
-            NSAssert([object isKindOfClass:[UIViewController class]], @"Only UIViewControllers can be loaded into the JBTabBArController viewControllers");
+            NSAssert([object isKindOfClass:[UIViewController class]], @"Only UIViewControllers can be loaded into the JBTabBarController viewControllers");
             UIViewController* controller = (UIViewController*) object;
             [controller view];
+            if ([controller isKindOfClass:[UINavigationController class]]) {
+                UINavigationController* navController = (UINavigationController*) controller;
+                [navController.topViewController view];
+            }
         }
     }
 }
