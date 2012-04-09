@@ -11,7 +11,6 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "UITabBarItem+JBAdditions.h"
-    #import "UIViewController+JBAdditions.h"
-    #import "UINavigationController+JBAdditions.h"
+    #import "JBTabBarController.h"
+    #import "JBTabBarController+ConvenienceMethods.h"
 #endif

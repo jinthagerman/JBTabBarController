@@ -13,7 +13,6 @@
 		0E25B69F14E4B1D4004582F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69914E4B1D2004582F3 /* AppDelegate.m */; };
 		0E25B6A014E4B1D4004582F3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69B14E4B1D3004582F3 /* SecondViewController.m */; };
 		0E25B6A114E4B1D4004582F3 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B69D14E4B1D4004582F3 /* ThirdViewController.m */; };
-		0E25B6A514E4B201004582F3 /* JBTabBarController-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E25B6A214E4B201004582F3 /* JBTabBarController-Info.plist */; };
 		0E25B6A614E4B201004582F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E25B6A414E4B201004582F3 /* main.m */; };
 		0E25B6AA14E4B216004582F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E25B6A814E4B216004582F3 /* InfoPlist.strings */; };
 		0E7D3FDF14DB31CF00E2D3A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7D3FDE14DB31CF00E2D3A6 /* UIKit.framework */; };
@@ -105,6 +104,7 @@
 		0EC2729814F1E14D00C8FC3E /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = Classes/FifthViewController.m; sourceTree = "<group>"; };
 		0ECA381F1531A6EF00A4F4E1 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		0ECA38201531A6EF00A4F4E1 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		0EE0BBB11532CAF100E1B5C5 /* JBTabBarController+ConvenienceMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JBTabBarController+ConvenienceMethods.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,19 +186,8 @@
 		0E9C76B914F2EBDD00BF8FC2 /* JBTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				0E9C76BA14F2EBDD00BF8FC2 /* JBTabBar.h */,
-				0E9C76BB14F2EBDD00BF8FC2 /* JBTabBar.m */,
-				0E9C76BC14F2EBDD00BF8FC2 /* JBTabBarButton.h */,
-				0E9C76BD14F2EBDD00BF8FC2 /* JBTabBarButton.m */,
-				0E9C76BF14F2EBDD00BF8FC2 /* JBTabBarController.h */,
-				0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */,
-				0E9C76C114F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.h */,
-				0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */,
-				0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */,
-				0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */,
-				0E5E4E68153197D8004E4A63 /* UINavigationController+JBAdditions.h */,
-				0E9F94B115318F71008530BD /* UINavigationController+JBAdditions.m */,
-				0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */,
+				0EE0BBB31532CAFF00E1B5C5 /* JBTabBarController */,
+				0EE0BBB41532CB2500E1B5C5 /* Convenience Methods */,
 			);
 			name = JBTabBarController;
 			path = ../JBTabBarController;
@@ -290,6 +279,34 @@
 			path = ../JRSwizzle;
 			sourceTree = "<group>";
 		};
+		0EE0BBB31532CAFF00E1B5C5 /* JBTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				0E9C76BF14F2EBDD00BF8FC2 /* JBTabBarController.h */,
+				0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */,
+				0E9C76BA14F2EBDD00BF8FC2 /* JBTabBar.h */,
+				0E9C76BB14F2EBDD00BF8FC2 /* JBTabBar.m */,
+				0E9C76BC14F2EBDD00BF8FC2 /* JBTabBarButton.h */,
+				0E9C76BD14F2EBDD00BF8FC2 /* JBTabBarButton.m */,
+				0E9C76C114F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.h */,
+				0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */,
+				0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */,
+			);
+			name = JBTabBarController;
+			sourceTree = "<group>";
+		};
+		0EE0BBB41532CB2500E1B5C5 /* Convenience Methods */ = {
+			isa = PBXGroup;
+			children = (
+				0EE0BBB11532CAF100E1B5C5 /* JBTabBarController+ConvenienceMethods.h */,
+				0E03B64E14F32C2200743353 /* UIViewController+JBAdditions.h */,
+				0E03B64F14F32C2200743353 /* UIViewController+JBAdditions.m */,
+				0E5E4E68153197D8004E4A63 /* UINavigationController+JBAdditions.h */,
+				0E9F94B115318F71008530BD /* UINavigationController+JBAdditions.m */,
+			);
+			name = "Convenience Methods";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,7 +357,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E25B6A514E4B201004582F3 /* JBTabBarController-Info.plist in Resources */,
 				0E25B6AA14E4B216004582F3 /* InfoPlist.strings in Resources */,
 				0E9C76C514F2EBDD00BF8FC2 /* JBTabBarController.bundle in Resources */,
 				0E9C76E214F2EC0600BF8FC2 /* At-selected.png in Resources */,

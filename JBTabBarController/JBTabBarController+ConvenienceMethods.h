@@ -1,5 +1,5 @@
 //
-//    JBTabBarController
+//    JBTabBarController+ConvenienceMethods
 //
 //    This code is distributed under the terms and conditions of the MIT license.
 //
@@ -23,24 +23,10 @@
 //    DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#ifndef JBTabBarControllerExample_JBTabBarController_ConvenienceMethods_h
+#define JBTabBarControllerExample_JBTabBarController_ConvenienceMethods_h
 
-#import "JBTabBar.h"
-#import "JBTabBarButton.h"
-#import "UITabBarItem+JBAdditions.h"
+#import "UIViewController+JBAdditions.h"
+#import "UINavigationController+JBAdditions.h"
 
-@class JBTabBar;
-@protocol JBTabBarDelegate;
-
-@interface JBTabBarController : UIViewController <JBTabBarDelegate> {
-    NSArray* _viewControllers;
-    __unsafe_unretained UIViewController* _selectedViewController;
-}
-
-@property (nonatomic, readonly, strong) JBTabBar* tabBar;
-@property (nonatomic, strong) NSArray* viewControllers;
-
-@property (nonatomic, unsafe_unretained) UIViewController* selectedViewController;
-@property (nonatomic) NSUInteger selectedIndex;
-
-@end
+#endif

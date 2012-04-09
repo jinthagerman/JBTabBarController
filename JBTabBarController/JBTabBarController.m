@@ -29,8 +29,6 @@
 
 #import "UITabBarItem+JBAdditions.h"
 
-#import "UIViewController+JBAdditions.h"
-
 @interface JBTabBarController()
 
 @property (nonatomic, readwrite, strong) JBTabBar* tabBar;
@@ -88,7 +86,9 @@
     [self loadControllerViews];
     
     for (UIViewController* controller in _viewControllers) {
-        controller.JBTabBarController = self;
+        if ([controller respondsToSelector:@selector(setJBTabBarController:)]) {
+            [controller performSelector:@selector(setJBTabBarController:) withObject:self];
+        }
     }
     
     if (self.tabBar) {
