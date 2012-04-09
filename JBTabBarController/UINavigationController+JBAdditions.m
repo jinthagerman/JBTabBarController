@@ -24,6 +24,7 @@
 //
 
 #import "UINavigationController+JBAdditions.h"
+#import "UIViewController+JBAdditions.h"
 
 #import "JRSwizzle.h"
 
