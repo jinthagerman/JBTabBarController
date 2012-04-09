@@ -78,7 +78,19 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+  if (self.viewControllers == nil) {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  }
+  
+  if ([self.viewControllers count] == 0) {
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  }
+  
+  if (self.selectedIndex >= [self.viewControllers count]) {
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  }
+
+  return [[self.viewControllers objectAtIndex:self.selectedIndex] shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 }
 
 - (void) setViewControllers:(NSArray *)viewControllers {
