@@ -1,29 +1,29 @@
 # JBTabBarController
 
-**JBTabBarController** aims to be a drop-in replacement of UITabBarController, but with the intention of letting developers easily customise its appearance. **JBTabBar** uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise all aspects of the TabBar. 
+**JBTabBarController** aims to be a drop-in replacement of `UITabBarController`, but with the intention of letting developers easily customise its appearance. **JBTabBar** uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise all aspects of the TabBar. 
 
-In particular, the images for selected and unselected states can be specified and are colour images not clipping masks. `UITabBarItem+JBAdditions.h` adds an additional property to UITabBarItem (`selectedImage`) which specifies the image to show in the selected state. I would recommend images of 30x30 pixels (60x60 pixels for Retina displays) for this purpose.
+In particular, the images for selected and unselected states can be specified and are colour images not clipping masks. `UITabBarItem+JBAdditions.h` adds an additional property (`selectedImage`) to `UITabBarItem` which specifies the image to show in the selected state. 30 pixel squared images (60 pixels for Retina displays) are recommended for this purpose.
 
 ## Installation Notes
-To use, import all the files in the JBTabBarController folder into your project and include "`JBTabBarController.h`" where ever it is needed or in your precompiled header. 
+To use, import all the files in the **JBTabBarController** folder into your project and include "`JBTabBarController.h`" where ever it is needed or in your precompiled header. 
 
-Also, include "`JBTabBarController+ConvenienceMethods.h`" if you want to use the convenience property added to UIViewController. This property works the same as the tabBarController property on UIViewController and gives you access to the relevant JBTabBarController from any of the UIViewControllers contained in it.
+Also, include "`JBTabBarController+ConvenienceMethods.h`" if you want to use the convenience property added to `UIViewController`. This property works the same as the `tabBarController` property on `UIViewController` and gives you access to the relevant **JBTabBarController** from any of the `UIViewController`s contained in it.
 
 The project uses ARC and targets iOS 4.0+ devices.
 
 ## Todo
-* Convert JBTabBar to UIControl
-* Make JBTabBar titles more configurable (font, colour, shadow)
-* Make JBTabBar more dynamic (swizzle UIViewController title property)
+* Convert **JBTabBar** to `UIControl`
+* Make **JBTabBar** titles more configurable (font, colour, shadow)
+* Make **JBTabBar** more dynamic (swizzle `UIViewController` title property)
 * More example TabBars (i.e replicate Apple Trailers and Twitter app tabbars)
-* Adopt more UITabBarController conventions and behaviours
+* Adopt more `UITabBarController` conventions and behaviours
 * Add a CocoaPods podspec and get that added to the repo
 
 ## Example Resources
 
-The included example attempts to emulate the standard UITabBar design provided by Apple. The layer styles used to create the TabBar images in Photoshop are in the Extras folder.
+The included example attempts to emulate the standard `UITabBar` design provided by Apple. The layer styles used to create the TabBar images in Photoshop are in the Extras folder.
 
-The example JBTabBar uses the following icons from the following authors (all from The Noun Project)
+The example **JBTabBar** uses the following icons from the following authors (all from The Noun Project)
 
 * ["Levitation" icon by Scott Lewis, from The Noun Project](http://thenounproject.com/noun/levitation/#icon-No774)
 * ["At" from The Noun Project (under Public Domain)](http://thenounproject.com/noun/at/#icon-No596)
