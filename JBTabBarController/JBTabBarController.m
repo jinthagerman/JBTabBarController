@@ -55,6 +55,7 @@
     
     CGRect frame = self.tabBar.frame;
     frame.origin.y = self.view.bounds.size.height - frame.size.height;
+    frame.size.width = self.view.bounds.size.width;
     self.tabBar.frame = frame;
     self.tabBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     [self setUpTabBarItems];
