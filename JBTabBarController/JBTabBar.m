@@ -118,15 +118,6 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-//- (void)touchDownAction:(UIGestureRecognizer*)gestureRecognizer
-//{    
-//    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-//        JBTab* tab = (JBTab*) gestureRecognizer.view;
-//        if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)])
-//            [_delegate performSelector:@selector(tabBar:didSelectItem:) withObject:self withObject:[_items objectAtIndex:[_tabs indexOfObject:tab]]];
-//    }
-//}
-
 - (JBTab*) tabWithTabBarItem:(UITabBarItem *)item
 {
     JBTab* tab = [[JBTab alloc] init];
