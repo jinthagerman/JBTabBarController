@@ -24,11 +24,11 @@
 //
 
 #import "JBTabBar.h"
-#import "JBTabBarButton.h"
+#import "JBTab.h"
 #import "UITabBarItem+JBAdditions.h"
 
 @interface JBTabBar()
--(UIButton*) buttonWithTabBarItem:(UITabBarItem*)item;
+-(JBTab*) tabWithTabBarItem:(UITabBarItem*)item;
 @end
 
 static CGSize const kDefaultSize = {320.0f, 49.0f};
@@ -69,18 +69,13 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
 - (void) setItems:(NSArray *)items {
     _items = items;
     
-    _buttons = [[NSMutableArray alloc] initWithCapacity:[_items count]];
+    _tabs = [[NSMutableArray alloc] initWithCapacity:[_items count]];
     
     for (UITabBarItem* item in _items)
     {
-        UIButton* button = [self buttonWithTabBarItem:item];
-        
-        [button addTarget:self action:@selector(touchDownAction:) forControlEvents:UIControlEventTouchDown];
-        [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside | UIControlEventTouchDragOutside | UIControlEventTouchDragInside];
-        
-        [_buttons addObject:button];
-        
-        [self addSubview:button];
+        JBTab* tab = [self tabWithTabBarItem:item];
+        [_tabs addObject:tab];
+        [self addSubview:tab];
     }
 }
 
@@ -93,8 +88,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
-        UIButton* button = [_buttons objectAtIndex:i];
-        button.frame = CGRectMake(horizontalOffset, 0.0, self.frame.size.width/itemCount, self.frame.size.height);
+        JBTab* tab = [_tabs objectAtIndex:i];
+        tab.frame = CGRectMake(horizontalOffset, 0.0, self.frame.size.width/itemCount, self.frame.size.height);
         
         horizontalOffset = horizontalOffset + self.frame.size.width/itemCount;
     }
@@ -109,75 +104,58 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
 }
 
 - (void)setSelectionIndicatorImage:(UIImage *)selectionIndicatorImage {
-    for (JBTabBarButton* button in _buttons) {
-        [button setBackgroundImage:selectionIndicatorImage forState:UIControlStateHighlighted];
-        [button setBackgroundImage:selectionIndicatorImage forState:UIControlStateSelected];
+    for (JBTab* tab in _tabs) {
+        tab.selectedBackgroundImage = selectionIndicatorImage;
     }
     _selectionIndicatorImage = selectionIndicatorImage;
 }
 
--(void) dimAllButtonsExcept:(UIButton*)selectedButton
-{
-    for (UIButton* button in _buttons)
+-(void) deselectAllTabsExcept:(JBTab*)selectedTab
+{ 
+    for (JBTab* tab in _tabs)
     {
-        if (button == selectedButton)
-        {
-            button.selected = YES;
-            button.highlighted = NO;        
-        } else {
-            button.selected = NO;
-            button.highlighted = NO;        
-        }
+        tab.selected = (tab == selectedTab);
     }
 }
 
-- (void)touchDownAction:(UIButton*)button
-{    
-    self.selectedItem = [_items objectAtIndex:[_buttons indexOfObject:button]];
-    
-    if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)])
-        [_delegate performSelector:@selector(tabBar:didSelectItem:) withObject:self withObject:_selectedItem];
-}
+//- (void)touchDownAction:(UIGestureRecognizer*)gestureRecognizer
+//{    
+//    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+//        JBTab* tab = (JBTab*) gestureRecognizer.view;
+//        if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)])
+//            [_delegate performSelector:@selector(tabBar:didSelectItem:) withObject:self withObject:[_items objectAtIndex:[_tabs indexOfObject:tab]]];
+//    }
+//}
 
-- (void)otherTouchesAction:(UIButton*)button
+- (JBTab*) tabWithTabBarItem:(UITabBarItem *)item
 {
-    [self dimAllButtonsExcept:button];
-}
-
-- (void) selectItemAtIndex:(NSInteger)index
-{
-    UIButton* button = [_buttons objectAtIndex:index];
+    JBTab* tab = [[JBTab alloc] init];
+    tab.titleLabel.font = [UIFont boldSystemFontOfSize:10.0f];
+    tab.titleLabel.textAlignment = UITextAlignmentCenter;
+    tab.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    [self dimAllButtonsExcept:button];
-}
-
-- (UIButton*) buttonWithTabBarItem:(UITabBarItem *)item
-{
-    JBTabBarButton* button = [[JBTabBarButton alloc] init];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:10.0f];
-    button.titleLabel.textAlignment = UITextAlignmentCenter;
-    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    button.showsTouchWhenHighlighted = NO;
-    button.reversesTitleShadowWhenHighlighted = NO;
-    button.adjustsImageWhenHighlighted = NO;
+    [tab setTitleColor:[UIColor colorWithWhite:0.6f alpha:1.0f] selected:NO];
+    [tab setTitleColor:[UIColor whiteColor] selected:YES];
+        
+    [tab setImage:item.image selected:NO];
+    [tab setImage:item.selectedImage selected:YES];
     
-    [button setTitleColor:[UIColor colorWithWhite:0.6f alpha:1.0f] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    tab.selectedBackgroundImage = self.selectionIndicatorImage;
         
-    [button setImage:item.image forState:UIControlStateNormal];
-    [button setImage:item.selectedImage forState:UIControlStateSelected];
+    tab.title = item.title;
     
-    [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateHighlighted];
-    [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateSelected];
+    __block UITabBarItem* tabItem = item;
+    [tab setTouchDownBlock:^{
+        if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)])
+            [_delegate performSelector:@selector(tabBar:didSelectItem:) withObject:self withObject:tabItem];
+    }];
         
-    [button setTitle:item.title forState:UIControlStateNormal];
-        
-    return button;
+    return tab;
 }
 
 - (void)setSelectedItem:(UITabBarItem *)selectedItem {
     if ([_items containsObject:selectedItem]) {
-        [self dimAllButtonsExcept:[_buttons objectAtIndex:[_items indexOfObject:selectedItem]]];
+        [self deselectAllTabsExcept:[_tabs objectAtIndex:[_items indexOfObject:selectedItem]]];
         _selectedItem = selectedItem;
     }
 }

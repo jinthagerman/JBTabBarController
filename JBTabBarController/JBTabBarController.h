@@ -26,15 +26,18 @@
 #import <UIKit/UIKit.h>
 
 #import "JBTabBar.h"
-#import "JBTabBarButton.h"
+#import "JBTab.h"
 #import "UITabBarItem+JBAdditions.h"
 
 @class JBTabBar;
 @protocol JBTabBarDelegate;
+@protocol JBTabBarControllerDelegate;
 
 @interface JBTabBarController : UIViewController <JBTabBarDelegate> {
-    NSArray* _viewControllers;
-    __unsafe_unretained UIViewController* _selectedViewController;
+    __unsafe_unretained id<JBTabBarControllerDelegate>          _delegate;
+    
+    NSArray*                                                    _viewControllers;
+    __unsafe_unretained UIViewController*                       _selectedViewController;
 }
 
 @property (nonatomic, readonly, strong) JBTabBar* tabBar;
@@ -43,4 +46,18 @@
 @property (nonatomic, unsafe_unretained) UIViewController* selectedViewController;
 @property (nonatomic) NSUInteger selectedIndex;
 
+@property(nonatomic, unsafe_unretained) id<JBTabBarControllerDelegate> delegate;
+
+@end
+
+@protocol JBTabBarControllerDelegate <NSObject>
+@optional
+// These are aimed to behave the same as the equivalent iOS 3.0+ UITabBarControllerDelegate methods
+- (BOOL)tabBarController:(JBTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController;
+- (void)tabBarController:(JBTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+
+// These are not called yet by the JBTabBarController
+- (void)tabBarController:(JBTabBarController *)tabBarController willBeginCustomizingViewControllers:(NSArray *)viewControllers;
+- (void)tabBarController:(JBTabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed;
+- (void)tabBarController:(JBTabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed;
 @end

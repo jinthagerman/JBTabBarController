@@ -42,6 +42,7 @@
 
 @synthesize tabBar;
 @synthesize viewControllers = _viewControllers;
+@synthesize delegate = _delegate;
 
 #pragma mark - View lifecycle
 
@@ -69,13 +70,7 @@
     self.tabBar = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  if (self.selectedViewController) {
-    return [self.selectedViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
-  }
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+#pragma mark Setup methods
 
 - (void) setViewControllers:(NSArray *)viewControllers {
     _viewControllers = viewControllers;
@@ -121,16 +116,30 @@
     }
 }
 
+#pragma mark UITabBarDelegate methods
+
 - (void)tabBar:(JBTabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    UIViewController* selectedController = nil;
     for (UIViewController* controller in _viewControllers) {
         if ([controller.tabBarItem isEqual:item]) {
-            self.selectedViewController = controller;
-            return;
+            selectedController = controller;
+            if ([self.delegate respondsToSelector:@selector(tabBarController:shouldSelectViewController:)]) {
+                if (![self.delegate tabBarController:self shouldSelectViewController:selectedController]) {
+                    selectedController = nil;
+                    break;
+                }
+            }
+            self.selectedViewController = selectedController;
+            break;
         }
+    }
+    
+    if (selectedController && [self.delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)]) {
+        [self.delegate tabBarController:self didSelectViewController:selectedController];
     }
 }
 
-#pragma mark Selected Tab properties
+#pragma mark Selected Tab methods
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
     self.selectedViewController = [_viewControllers objectAtIndex:selectedIndex];
@@ -166,6 +175,16 @@
 
 - (UIViewController*) selectedViewController {
     return _selectedViewController;
+}
+
+#pragma mark UIViewController rotation methods
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if (self.selectedViewController) {
+        return [self.selectedViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+    }
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {

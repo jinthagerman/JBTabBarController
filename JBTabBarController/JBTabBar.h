@@ -28,7 +28,7 @@
 @protocol JBTabBarDelegate;
 
 @interface JBTabBar : UIView {
-    NSMutableArray                              *_buttons;
+    NSMutableArray                              *_tabs;
     __unsafe_unretained id<JBTabBarDelegate>     _delegate;
     NSArray                                     *_items;
     __unsafe_unretained UITabBarItem            *_selectedItem;

@@ -18,7 +18,7 @@
 		0E7D3FDF14DB31CF00E2D3A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7D3FDE14DB31CF00E2D3A6 /* UIKit.framework */; };
 		0E7D3FE114DB31CF00E2D3A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7D3FE014DB31CF00E2D3A6 /* Foundation.framework */; };
 		0E9C76C314F2EBDD00BF8FC2 /* JBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C76BB14F2EBDD00BF8FC2 /* JBTabBar.m */; };
-		0E9C76C414F2EBDD00BF8FC2 /* JBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C76BD14F2EBDD00BF8FC2 /* JBTabBarButton.m */; };
+		0E9C76C414F2EBDD00BF8FC2 /* JBTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C76BD14F2EBDD00BF8FC2 /* JBTab.m */; };
 		0E9C76C514F2EBDD00BF8FC2 /* JBTabBarController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */; };
 		0E9C76C614F2EBDD00BF8FC2 /* JBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */; };
 		0E9C76C714F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */; };
@@ -70,8 +70,8 @@
 		0E7D3FE014DB31CF00E2D3A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0E9C76BA14F2EBDD00BF8FC2 /* JBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTabBar.h; sourceTree = "<group>"; };
 		0E9C76BB14F2EBDD00BF8FC2 /* JBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTabBar.m; sourceTree = "<group>"; };
-		0E9C76BC14F2EBDD00BF8FC2 /* JBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTabBarButton.h; sourceTree = "<group>"; };
-		0E9C76BD14F2EBDD00BF8FC2 /* JBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTabBarButton.m; sourceTree = "<group>"; };
+		0E9C76BC14F2EBDD00BF8FC2 /* JBTab.h */ = {isa = PBXFileReference; fileEncoding = 4; path = JBTab.h; sourceTree = "<group>"; };
+		0E9C76BD14F2EBDD00BF8FC2 /* JBTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTab.m; sourceTree = "<group>"; };
 		0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JBTabBarController.bundle; sourceTree = "<group>"; };
 		0E9C76BF14F2EBDD00BF8FC2 /* JBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTabBarController.h; sourceTree = "<group>"; };
 		0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTabBarController.m; sourceTree = "<group>"; };
@@ -286,8 +286,8 @@
 				0E9C76C014F2EBDD00BF8FC2 /* JBTabBarController.m */,
 				0E9C76BA14F2EBDD00BF8FC2 /* JBTabBar.h */,
 				0E9C76BB14F2EBDD00BF8FC2 /* JBTabBar.m */,
-				0E9C76BC14F2EBDD00BF8FC2 /* JBTabBarButton.h */,
-				0E9C76BD14F2EBDD00BF8FC2 /* JBTabBarButton.m */,
+				0E9C76BC14F2EBDD00BF8FC2 /* JBTab.h */,
+				0E9C76BD14F2EBDD00BF8FC2 /* JBTab.m */,
 				0E9C76C114F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.h */,
 				0E9C76C214F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m */,
 				0E9C76BE14F2EBDD00BF8FC2 /* JBTabBarController.bundle */,
@@ -333,7 +333,7 @@
 		0E7D3FD114DB31CE00E2D3A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 0E7D3FD414DB31CE00E2D3A6 /* Build configuration list for PBXProject "JBTabBarControllerExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -397,7 +397,7 @@
 				0EC2725A14F1D46300C8FC3E /* FourthViewController.m in Sources */,
 				0EC2729914F1E14D00C8FC3E /* FifthViewController.m in Sources */,
 				0E9C76C314F2EBDD00BF8FC2 /* JBTabBar.m in Sources */,
-				0E9C76C414F2EBDD00BF8FC2 /* JBTabBarButton.m in Sources */,
+				0E9C76C414F2EBDD00BF8FC2 /* JBTab.m in Sources */,
 				0E9C76C614F2EBDD00BF8FC2 /* JBTabBarController.m in Sources */,
 				0E9C76C714F2EBDD00BF8FC2 /* UITabBarItem+JBAdditions.m in Sources */,
 				0E03B65014F32C2200743353 /* UIViewController+JBAdditions.m in Sources */,
@@ -478,6 +478,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classes/JBTabBarController-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Classes/JBTabBarController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JBTabBarControllerExample;
@@ -498,6 +499,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classes/JBTabBarController-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Classes/JBTabBarController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = JBTabBarControllerExample;

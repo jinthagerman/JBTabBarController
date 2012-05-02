@@ -25,6 +25,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JBTabBarButton : UIButton
+typedef void (^tapBlock)();
+
+@interface JBTab : UIView
+
+@property(nonatomic) BOOL                           selected;
+
+@property(nonatomic,strong) NSString                *title;
+
+@property(nonatomic,readonly,strong) UIColor        *currentTitleColor;        // normal/selected
+@property(nonatomic,readonly,strong) UIColor        *currentTitleShadowColor;  // normal/selected
+@property(nonatomic,readonly,strong) UIImage        *currentImage;             // normal/selected
+
+@property(nonatomic,readonly,strong) UILabel        *titleLabel;
+@property(nonatomic,readonly,strong) UIImageView    *imageView;
+@property(nonatomic,strong) UIImage                 *selectedBackgroundImage;
+
+- (void) setTitleColor:(UIColor*)titleColor selected:(BOOL)selected;
+- (void) setTitleShadowColor:(UIColor*)titleShadowColor selected:(BOOL)selected;
+- (void) setImage:(UIImage*)image selected:(BOOL)selected;
+
+- (void) setTouchDownBlock:(tapBlock)block;
 
 @end
