@@ -75,6 +75,9 @@
         _titleLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_titleLabel];
         
+        [self setTitleColor:[UIColor whiteColor] selected:NO];
+        [self setTitleShadowColor:[UIColor clearColor] selected:NO];
+        
         [self configureViewsSelected:NO];
         self.userInteractionEnabled = YES;
     }
