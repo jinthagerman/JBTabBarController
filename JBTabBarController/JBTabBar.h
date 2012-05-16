@@ -35,7 +35,7 @@ typedef enum {
 } JBTabBarLayoutStrategy;
 
 @class JBTab;
-typedef void (^JBLayoutBlock) (JBTab*, NSUInteger);
+typedef void (^JBLayoutBlock) (JBTab* tab, NSUInteger index, NSUInteger numberOfTabs);
 
 @protocol JBTabBarDelegate;
 
@@ -63,7 +63,7 @@ typedef void (^JBLayoutBlock) (JBTab*, NSUInteger);
 @property(nonatomic) CGFloat maximumTabWidth;
 
 // Will only be used if layoutStrategy is set to JBTabBarLayoutStrategyBlockBased
-@property(nonatomic,strong) JBLayoutBlock layoutBlock;
+@property(nonatomic, copy) JBLayoutBlock layoutBlock;
 
 // Needs to be implemented to replicate UITabBar fully
 //- (void)setItems:(NSArray *)items animated:(BOOL)animated;
