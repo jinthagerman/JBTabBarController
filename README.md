@@ -7,7 +7,7 @@ In particular, the images for selected and unselected states can be specified an
 ## Installation Notes
 To use, import all the files in the **JBTabBarController** folder into your project and include "`JBTabBarController.h`" where ever it is needed or in your precompiled header. 
 
-Also, include "`JBTabBarController+ConvenienceMethods.h`" if you want to use the convenience property added to `UIViewController`. This property works the same as the `tabBarController` property on `UIViewController` and gives you access to the relevant **JBTabBarController** from any of the `UIViewController`s contained in it.
+Also, include "`JBTabBarController+ConvenienceMethods.h`" if you want to use the convenience property added to `UIViewController`. This property works the same as the `tabBarController` property on `UIViewController` and gives you access to the relevant **JBTabBarController** from any of the `UIViewController`s contained in it. Using this property currently requires **JRSwizzle**.
 
 The project uses ARC and targets iOS 4.0+ devices.
 
@@ -17,7 +17,7 @@ The project uses ARC and targets iOS 4.0+ devices.
 * Make **JBTabBar** more dynamic (swizzle `UIViewController` title property)
 * More example TabBars (i.e replicate Apple Trailers and Twitter app tabbars)
 * Adopt more `UITabBarController` conventions and behaviours
-* Add a CocoaPods podspec and get that added to the repo
+* Make the example compile without **JRSwizzle**
 
 ## Example Resources
 
