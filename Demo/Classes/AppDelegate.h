@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic) NSUInteger numberOfTabs;
+@property (nonatomic) JBTabBarLayoutStrategy layoutStrategy;
+
 @end
