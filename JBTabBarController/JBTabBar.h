@@ -25,6 +25,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    JBTabBarLayoutStrategyFill = 0,
+    JBTabBarLayoutStrategyCenter,
+    JBTabBarLayoutStrategyEqualSpacing,
+    JBTabBarLayoutStrategyLeftJustified,
+    JBTabBarLayoutStrategyRightJustified,
+    JBTabBarLayoutStrategyBlockBased
+} JBTabBarLayoutStrategy;
+
+@class JBTab;
+typedef void (^JBLayoutBlock) (JBTab*, NSUInteger);
+
 @protocol JBTabBarDelegate;
 
 @interface JBTabBar : UIView {
@@ -34,11 +46,24 @@
     __unsafe_unretained UITabBarItem            *_selectedItem;
     UIImage                                     *_selectionIndicatorImage;
     UIImageView                                 *_backgroundView;
+    JBTabBarLayoutStrategy                      _layoutStrategy;
 }
 
 @property(nonatomic,unsafe_unretained) id<JBTabBarDelegate> delegate;
 @property(nonatomic,copy) NSArray *items;
 @property(nonatomic,unsafe_unretained) UITabBarItem *selectedItem;
+
+// Determines how the tab views will be laid out. If self.frame.size.width/numberOfTabs >= maximumTabWidth, 
+// this setting will have no effect (i.e same result as JBTabBarLayoutStrategyFill).
+@property(nonatomic) JBTabBarLayoutStrategy layoutStrategy;
+
+// Sets the maximum width of a tab view. This only comes into effect 
+// once self.frame.size.width/numberOfTabs < maximumTabWidth
+// Defaults to CGFLOAT_MAX
+@property(nonatomic) CGFloat maximumTabWidth;
+
+// Will only be used if layoutStrategy is set to JBTabBarLayoutStrategyBlockBased
+@property(nonatomic,strong) JBLayoutBlock layoutBlock;
 
 // Needs to be implemented to replicate UITabBar fully
 //- (void)setItems:(NSArray *)items animated:(BOOL)animated;

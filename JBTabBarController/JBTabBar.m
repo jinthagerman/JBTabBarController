@@ -41,10 +41,16 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
 
 @synthesize selectionIndicatorImage = _selectionIndicatorImage; 
 
+@synthesize layoutStrategy = _layoutStrategy;
+@synthesize maximumTabWidth = _maximumTabWidth;
+@synthesize layoutBlock = _layoutBlock;
+
 - (id) init
 {
     if (self = [super init])
     {
+        self.maximumTabWidth = CGFLOAT_MAX;
+        
         self.backgroundColor = [UIColor blackColor];
         _backgroundView = [[UIImageView alloc] initWithFrame:self.bounds];
         _backgroundView.backgroundColor = [UIColor blackColor];
@@ -83,15 +89,102 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     [super layoutSubviews];
     
     NSUInteger itemCount = [_items count];
-    
+    if ([self shouldLayout]) {
+        switch (self.layoutStrategy) {
+            case JBTabBarLayoutStrategyCenter:
+                [self layoutCenteredWithItemCount:itemCount];
+                break;
+            case JBTabBarLayoutStrategyEqualSpacing:
+                [self layoutEquallySpacedWithItemCount:itemCount];
+                break;
+            case JBTabBarLayoutStrategyLeftJustified:
+                [self layoutLeftWithItemCount:itemCount];
+                break;
+            case JBTabBarLayoutStrategyRightJustified:
+                [self layoutRightWithItemCount:itemCount];
+                break;
+            case JBTabBarLayoutStrategyBlockBased:
+                if (self.layoutBlock) {
+                    [self layoutBlockBasedWithItemCount:itemCount];
+                    break;
+                }
+            case JBTabBarLayoutStrategyFill:
+            default:
+                [self layoutFillWithItemCount:itemCount];
+                break;
+        }
+    } else {
+        [self layoutFillWithItemCount:itemCount];
+    }
+}
+
+- (BOOL) shouldLayout {
+    BOOL isValidWidth = (self.maximumTabWidth < CGFLOAT_MAX - FLT_EPSILON && self.frame.size.width/[_items count] > self.maximumTabWidth);
+    BOOL isBlockBased = (self.layoutStrategy == JBTabBarLayoutStrategyBlockBased);
+    return isBlockBased || isValidWidth;
+}
+
+- (void) layoutFillWithItemCount:(NSUInteger)itemCount {
     CGFloat horizontalOffset = 0;
-    
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
         JBTab* tab = [_tabs objectAtIndex:i];
         tab.frame = CGRectMake(horizontalOffset, 0.0, self.frame.size.width/itemCount, self.frame.size.height);
         
         horizontalOffset = horizontalOffset + self.frame.size.width/itemCount;
+    }
+}
+
+- (void) layoutCenteredWithItemCount:(NSUInteger)itemCount {
+    CGFloat horizontalOffset = (self.frame.size.width - itemCount*self.maximumTabWidth)/2;
+    for (NSUInteger i = 0 ; i < itemCount ; i++)
+    {
+        JBTab* tab = [_tabs objectAtIndex:i];
+        tab.frame = CGRectMake(horizontalOffset, 0.0, self.maximumTabWidth, self.frame.size.height);
+        
+        horizontalOffset = horizontalOffset + self.maximumTabWidth;
+    }
+}
+
+- (void) layoutEquallySpacedWithItemCount:(NSUInteger)itemCount {
+    CGFloat spacing = (self.frame.size.width - itemCount*self.maximumTabWidth)/(itemCount+1);
+    CGFloat horizontalOffset = spacing;
+    for (NSUInteger i = 0 ; i < itemCount ; i++)
+    {
+        JBTab* tab = [_tabs objectAtIndex:i];
+        tab.frame = CGRectMake(horizontalOffset, 0.0, self.maximumTabWidth, self.frame.size.height);
+        
+        horizontalOffset = horizontalOffset + self.maximumTabWidth + spacing;
+    }
+}
+
+- (void) layoutLeftWithItemCount:(NSUInteger)itemCount {
+    CGFloat horizontalOffset = 0;
+    for (NSUInteger i = 0 ; i < itemCount ; i++)
+    {
+        JBTab* tab = [_tabs objectAtIndex:i];
+        tab.frame = CGRectMake(horizontalOffset, 0.0, self.maximumTabWidth, self.frame.size.height);
+        
+        horizontalOffset = horizontalOffset + self.maximumTabWidth;
+    }
+}
+
+- (void) layoutRightWithItemCount:(NSUInteger)itemCount {
+    CGFloat horizontalOffset = self.frame.size.width - self.maximumTabWidth;
+    for (NSUInteger i = 1 ; i <= itemCount ; i++)
+    {
+        JBTab* tab = [_tabs objectAtIndex:itemCount - i];
+        tab.frame = CGRectMake(horizontalOffset, 0.0, self.maximumTabWidth, self.frame.size.height);
+        
+        horizontalOffset = horizontalOffset - self.maximumTabWidth;
+    }
+}
+
+- (void) layoutBlockBasedWithItemCount:(NSUInteger)itemCount {
+    for (NSUInteger i = 0 ; i < itemCount ; i++)
+    {
+        JBTab* tab = [_tabs objectAtIndex:i];
+        self.layoutBlock(tab,i);
     }
 }
 
@@ -149,6 +242,16 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
         [self deselectAllTabsExcept:[_tabs objectAtIndex:[_items indexOfObject:selectedItem]]];
         _selectedItem = selectedItem;
     }
+}
+
+- (void)setLayoutStrategy:(JBTabBarLayoutStrategy)layoutStrategy {
+    _layoutStrategy = layoutStrategy;
+    [self setNeedsLayout];
+}
+
+- (void)setMaximumTabWidth:(CGFloat)maximumTabWidth {
+    _maximumTabWidth = maximumTabWidth;
+    [self setNeedsLayout];
 }
 
 @end
