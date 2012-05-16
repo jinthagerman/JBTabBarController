@@ -88,33 +88,32 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    NSUInteger itemCount = [_items count];
     if ([self shouldLayout]) {
         switch (self.layoutStrategy) {
             case JBTabBarLayoutStrategyCenter:
-                [self layoutCenteredWithItemCount:itemCount];
+                [self layoutCentered];
                 break;
             case JBTabBarLayoutStrategyEqualSpacing:
-                [self layoutEquallySpacedWithItemCount:itemCount];
+                [self layoutEquallySpaced];
                 break;
             case JBTabBarLayoutStrategyLeftJustified:
-                [self layoutLeftWithItemCount:itemCount];
+                [self layoutLeft];
                 break;
             case JBTabBarLayoutStrategyRightJustified:
-                [self layoutRightWithItemCount:itemCount];
+                [self layoutRight];
                 break;
             case JBTabBarLayoutStrategyBlockBased:
                 if (self.layoutBlock) {
-                    [self layoutBlockBasedWithItemCount:itemCount];
+                    [self layoutBlockBased];
                     break;
                 }
             case JBTabBarLayoutStrategyFill:
             default:
-                [self layoutFillWithItemCount:itemCount];
+                [self layoutFill];
                 break;
         }
     } else {
-        [self layoutFillWithItemCount:itemCount];
+        [self layoutFill];
     }
 }
 
@@ -124,7 +123,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     return isBlockBased || isValidWidth;
 }
 
-- (void) layoutFillWithItemCount:(NSUInteger)itemCount {
+- (void) layoutFill {
+    NSUInteger itemCount = [_items count];
     CGFloat horizontalOffset = 0;
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
@@ -135,7 +135,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-- (void) layoutCenteredWithItemCount:(NSUInteger)itemCount {
+- (void) layoutCentered {
+    NSUInteger itemCount = [_items count];
     CGFloat horizontalOffset = (self.frame.size.width - itemCount*self.maximumTabWidth)/2;
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
@@ -146,7 +147,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-- (void) layoutEquallySpacedWithItemCount:(NSUInteger)itemCount {
+- (void) layoutEquallySpaced {
+    NSUInteger itemCount = [_items count];
     CGFloat spacing = (self.frame.size.width - itemCount*self.maximumTabWidth)/(itemCount+1);
     CGFloat horizontalOffset = spacing;
     for (NSUInteger i = 0 ; i < itemCount ; i++)
@@ -158,7 +160,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-- (void) layoutLeftWithItemCount:(NSUInteger)itemCount {
+- (void) layoutLeft {
+    NSUInteger itemCount = [_items count];
     CGFloat horizontalOffset = 0;
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
@@ -169,7 +172,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-- (void) layoutRightWithItemCount:(NSUInteger)itemCount {
+- (void) layoutRight {
+    NSUInteger itemCount = [_items count];
     CGFloat horizontalOffset = self.frame.size.width - self.maximumTabWidth;
     for (NSUInteger i = 1 ; i <= itemCount ; i++)
     {
@@ -180,7 +184,8 @@ static CGSize const kDefaultSize = {320.0f, 49.0f};
     }
 }
 
-- (void) layoutBlockBasedWithItemCount:(NSUInteger)itemCount {
+- (void) layoutBlockBased {
+    NSUInteger itemCount = [_items count];
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
         JBTab* tab = [_tabs objectAtIndex:i];
