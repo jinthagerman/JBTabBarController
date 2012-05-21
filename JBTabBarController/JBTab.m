@@ -181,7 +181,7 @@
 }
 
 - (void)setTouchDownBlock:(tapBlock)block {
-    _touchDownBlock = block;   
+    _touchDownBlock = [block copy];   
 }
 
 #pragma mark Convenience Methods
