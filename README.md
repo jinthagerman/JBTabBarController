@@ -1,5 +1,7 @@
 # JBTabBarController
 
++![](http://farm9.staticflickr.com/8446/7892326866_73070f3c07.jpg)
+
 **JBTabBarController** aims to be a drop-in replacement of `UITabBarController`, but with the intention of letting developers easily customise its appearance. **JBTabBar** uses images for all UI elements except for the labels on TabBar items. This gives the Developer/Designer the freedom to customise all aspects of the TabBar. 
 
 In particular, the images for selected and unselected states can be specified and are colour images not clipping masks. `UITabBarItem+JBAdditions.h` adds an additional property (`selectedImage`) to `UITabBarItem` which specifies the image to show in the selected state. 30 pixel squared images (60 pixels for Retina displays) are recommended for this purpose.
