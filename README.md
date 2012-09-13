@@ -12,12 +12,13 @@ Also, include "`JBTabBarController+ConvenienceMethods.h`" if you want to use the
 The project uses ARC and targets iOS 4.0+ devices.
 
 ## Todo
-* Convert **JBTabBar** to `UIControl`
 * Make **JBTabBar** titles more configurable (font, colour, shadow)
 * Make **JBTabBar** more dynamic (swizzle `UIViewController` title property)
 * More example TabBars (i.e replicate Apple Trailers and Twitter app tabbars)
 * Adopt more `UITabBarController` conventions and behaviours
 * Make the example compile without **JRSwizzle**
+* Automatic resize of tabBar with new backgroundImage (KVO)
+* Option to hide labels
 
 ## Example Resources
 
